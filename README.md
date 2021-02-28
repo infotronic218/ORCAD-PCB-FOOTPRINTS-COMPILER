@@ -6,8 +6,6 @@ path.
 During the development of one our project, we downloaded many footprints
 files from different websites. Adding each one of them in a single so we can 
 update any footprint if needed.
-
-
 When we finish designing our schematic and wanted to 
 develop route our the board we faced some issues for the footprints paths.
 Footprints files needed to be in single folder so we can we the the folder path 
@@ -26,7 +24,6 @@ Inside each folder we have subfolder for each footprint files .
 By designing this software we are able to copies all the footprint files
 to a single folder. And what we have to do is to simply add one path to 
 PCB Editor configurations. 
-
 After an update (Adding new footprints or updating existing footprints) you just need 
 compile the files and get everything up to date.
 
@@ -39,7 +36,7 @@ the files copying.
 
 
 
-#Compiled 
+##Compiled 
 Using the Pyinstaller library we compiled the software to *exe* file 
 for window OS so you can just download it and run it. You can also download the 
 source code and run it or make some changes if you want.
