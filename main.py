@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter.ttk import Button, Label, Entry, Frame, Style
 from tkinter import filedialog
+from tkinter import messagebox
+
 from functools import partial
 from compile import Compiler
 from threading import Thread
@@ -9,13 +11,12 @@ from threading import Thread
 class MainApp(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
-        self.geometry()
-        self.tk.call('wm', 'iconphoto', self._w, tk.PhotoImage(file='./images/icon.png'))
         self.wm_title("Orcad PCB Library Compiler")
         self.geometry("500x250")
         self.configure(bg="#e9e4ed")
         self.resizable(False, False)
         self.center_the_screen()
+        self.iconbitmap(bitmap="./images/icon.ico")
 
     def center_the_screen(self):
         window_width = self.winfo_reqwidth()
@@ -36,12 +37,15 @@ class MainApp(tk.Tk):
         source_folder = self.source_entry.get()
         destination_folder = self.destination_entry.get()
         print(source_folder, destination_folder)
+        if str(source_folder).__eq__("") or str(destination_folder).__eq__(""):
+            messagebox.showerror(title="Compiling Error", message="Source and destination folders should not be empty!")
+        else:
+            def run():
+                compiler = Compiler(source_folder=source_folder, destination_folder=destination_folder)
+                compiler.compile()
+                messagebox.showinfo(title="Completed", message="Libraries compiled successfully to one folder!")
 
-        def run():
-            compiler = Compiler(source_folder=source_folder, destination_folder=destination_folder)
-            compiler.compile()
-
-        Thread(target=run(), daemon=False).start()
+            Thread(target=run(), daemon=False).start()
 
     def open_folder_dialog(self, entry, text):
         directory = filedialog.askdirectory()
@@ -52,25 +56,24 @@ class MainApp(tk.Tk):
         main_frame = Frame(self, borderwidth=1)
         main_frame.pack(fill=tk.BOTH, expand=True)
 
-        source_label = Label(main_frame, text="Library source folder :")
+        source_label = Label(main_frame, text="Libraries parent folder :", anchor="e", justify=tk.LEFT)
         self.source_entry = Entry(main_frame, width=65)
         source_button = Button(main_frame, width=10, text="...")
-        source_button.bind("<Button-1>", lambda event: self.open_folder_dialog(self.source_entry, "Destinatom"))
+        source_button.bind("<Button-1>", lambda event: self.open_folder_dialog(self.source_entry, "Destination"))
 
-        destination_label = Label(main_frame, text="Compiled folder :")
+        destination_label = Label(main_frame, text="Compiled destination folder :")
         self.destination_entry = Entry(main_frame, width=65)
         destination_button = Button(main_frame, width=10, text="...")
         destination_button.bind("<Button-1>", lambda event: self.open_folder_dialog(self.destination_entry,
                                                                                     "Select destination folder"))
 
-        source_label.grid(row=0, column=0, padx=5, pady=5, columnspan=4)
+        source_label.grid(row=0, column=0, padx=5, pady=5, sticky=tk.W, columnspan=2)
         self.source_entry.grid(row=1, column=1, padx=5, pady=5, columnspan=9)
         source_button.grid(row=1, column=10, padx=5, pady=5)
 
-        destination_label.grid(row=2, column=0, padx=5, pady=5, columnspan=4)
+        destination_label.grid(row=2, column=0, padx=5, pady=5, sticky=tk.W, columnspan=2)
         self.destination_entry.grid(row=3, column=1, padx=5, pady=5, columnspan=9)
         destination_button.grid(row=3, column=10, padx=5, pady=5)
-
 
     def add_bottom_frame(self):
         bottom_frame = Frame(self, borderwidth=1)
@@ -79,13 +82,11 @@ class MainApp(tk.Tk):
         bottom_frame.style = style
         bottom_frame.pack(fill=tk.X, side=tk.BOTTOM, expand=True)
 
-        self.close_button = Button(bottom_frame, text="Close", command=self.close_window)
+        close_button = Button(bottom_frame, text="Close", command=self.close_window)
 
-        self.close_button.pack(side=tk.RIGHT, padx=5, pady=0)
-        self.compile_button = Button(bottom_frame, text="Compile", command=self.compile_files)
-        self.compile_button.pack(side=tk.RIGHT)
-
-
+        close_button.pack(side=tk.RIGHT, padx=5, pady=0)
+        compile_button = Button(bottom_frame, text="Compile", command=self.compile_files)
+        compile_button.pack(side=tk.RIGHT)
 
 
 if __name__ == '__main__':
