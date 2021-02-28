@@ -30,7 +30,7 @@ The sofware is designed with python language and TKinter package and it contains
 two files. One for the graphical interface components and the second for
 the files copying.
 ###Footprints parent and compiled folders
-![Footprints parent and compiled folders](./images/footprints_parent.png) 
+![Footprints parent and compiled folders](./images/footprints_parent.PNG) 
 
 
 
@@ -40,7 +40,7 @@ for window OS so you can just download it and run it. You can also download the
 source code and run it or make some changes if you want.
 
 ##Application interface 
-![Footprints parent and compiled folders](./images/main_interface.png) 
+![Footprints parent and compiled folders](./images/main_interface.PNG) 
 In the main interface you have two input files where you select the 
 the footprints parent folder and the destination source folder.
 When everything is setup correctly you can click on the complile button 
