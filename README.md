@@ -2,7 +2,7 @@
 This is ORCAD PCB Footprint libraries files compiler that copies files in different 
 folders to a single folder. So in your PCB design settings, you just have to add one single
 path. 
-##History
+## History
 During the development of one our project, we downloaded many footprints
 files from different websites. Adding each one of them in a single so we can 
 update any footprint if needed.
@@ -14,7 +14,7 @@ footprints files to a one folder manually and is time consuming task.
 The best solution we can come with was to automate the file copying
 process with a software.
 
-##Footprints organization folders
+## Footprints organization folders
 
 The footprints are classified by components type and save in different folders.
 Inside each folder we have subfolder for each footprint files .
@@ -36,12 +36,12 @@ the files copying.
 
 
 
-##Compiled 
+## Compiled 
 Using the Pyinstaller library we compiled the software to *exe* file 
 for window OS so you can just download it and run it. You can also download the 
 source code and run it or make some changes if you want.
 
-##Application interface 
+## Application interface 
 ![Footprints parent and compiled folders](./images/main_interface.PNG) 
 In the main interface you have two input files where you select the 
 the footprints parent folder and the destination source folder.
