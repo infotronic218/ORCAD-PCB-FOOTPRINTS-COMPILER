@@ -31,7 +31,7 @@ compile the files and get everything up to date.
 The sofware is designed with python language and TKinter package and it contains 
 two files. One for the graphical interface components and the second for
 the files copying.
-###Footprints parent and compiled folders
+##Footprints parent and compiled folders
 ![Footprints parent and compiled folders](./images/footprints_parent.PNG) 
 
 
