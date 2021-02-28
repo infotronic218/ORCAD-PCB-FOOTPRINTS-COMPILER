@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter.ttk import Button,Label,Entry, Frame, Style
+from tkinter.ttk import Button, Label, Entry, Frame, Style
 from tkinter import filedialog
 from functools import partial
 from compile import Compiler
@@ -36,31 +36,32 @@ class MainApp(tk.Tk):
         source_folder = self.source_entry.get()
         destination_folder = self.destination_entry.get()
         print(source_folder, destination_folder)
+
         def run():
             compiler = Compiler(source_folder=source_folder, destination_folder=destination_folder)
             compiler.compile()
-        Thread(target=run(),daemon=False).start()
+
+        Thread(target=run(), daemon=False).start()
 
     def open_folder_dialog(self, entry, text):
-
         directory = filedialog.askdirectory()
         entry.delete(0, tk.END)
         entry.insert(0, directory)
 
-
     def add_main_frame(self):
-        main_frame = Frame(self,  borderwidth=1)
+        main_frame = Frame(self, borderwidth=1)
         main_frame.pack(fill=tk.BOTH, expand=True)
 
         source_label = Label(main_frame, text="Library source folder :")
         self.source_entry = Entry(main_frame, width=65)
-        source_button = Button(main_frame, width=10,text="...")
-        source_button.bind("<Button-1>", lambda event : self.open_folder_dialog(self.source_entry,"Destinatom"))
+        source_button = Button(main_frame, width=10, text="...")
+        source_button.bind("<Button-1>", lambda event: self.open_folder_dialog(self.source_entry, "Destinatom"))
 
         destination_label = Label(main_frame, text="Compiled folder :")
         self.destination_entry = Entry(main_frame, width=65)
         destination_button = Button(main_frame, width=10, text="...")
-        destination_button.bind("<Button-1>", lambda event: self.open_folder_dialog(self.destination_entry, "Select destination folder"))
+        destination_button.bind("<Button-1>", lambda event: self.open_folder_dialog(self.destination_entry,
+                                                                                    "Select destination folder"))
 
         source_label.grid(row=0, column=0, padx=5, pady=5, columnspan=4)
         self.source_entry.grid(row=1, column=1, padx=5, pady=5, columnspan=9)
@@ -70,11 +71,10 @@ class MainApp(tk.Tk):
         self.destination_entry.grid(row=3, column=1, padx=5, pady=5, columnspan=9)
         destination_button.grid(row=3, column=10, padx=5, pady=5)
 
-
     def add_bottom_frame(self):
         self.bottom_frame = Frame(self, borderwidth=1)
         style = Style()
-        #style.theme_use("default")
+        # style.theme_use("default")
         self.bottom_frame.style = style
         self.bottom_frame.pack(fill=tk.X, side=tk.BOTTOM, expand=True)
 
