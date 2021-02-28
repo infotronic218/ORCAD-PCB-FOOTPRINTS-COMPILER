@@ -16,6 +16,7 @@ footprints files to a one folder manually and is time consuming task.
 The best solution we can come with was to automate the file copying
 process with a software.
 
+
 ###Footprints organization folders
 
 ![Footprints organization folders](./images/footprints_folders.PNG)
