@@ -87,6 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614473607357</updated>
       <workItem from="1614473608854" duration="18038000" />
+      <workItem from="1614510937128" duration="392000" />
     </task>
     <servers />
   </component>
@@ -139,6 +140,7 @@
         <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1614490266036">
