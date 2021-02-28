@@ -15,7 +15,9 @@ to our design configurations. The second option was to copy each
 footprints files to a one folder manually and is time consuming task.
 The best solution we can come with was to automate the file copying
 process with a software.
+
 ###Footprints organization folders
+
 ![Footprints organization folders](./images/footprints_folders.PNG)
 
 By designing this software we are able to copies all the footprint files
