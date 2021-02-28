@@ -17,7 +17,7 @@ The best solution we can come with was to automate the file copying
 process with a software.
 
 
-##Footprints organization folders
+##Footprintsorganizationfolders
 The footprints are classified by components type and save in different folders.
 Inside each folder we have subfolder for each footprint files .
 
