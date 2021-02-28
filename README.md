@@ -48,5 +48,5 @@ the footprints parent folder and the destination source folder.
 When everything is setup correctly you can click on the complile button 
 to copy the files. At the end of the copying you will see a notification dialog.
 ## Free to use 
-Feel free to use the software for any kind of usage. You can also take contact with me if 
+Feel free to use the software for your need. You can also take contact with me if 
 you have similar issues you want to automated. 
